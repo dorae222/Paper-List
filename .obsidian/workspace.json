@@ -1,0 +1,159 @@
+{
+  "main": {
+    "id": "4b02735b93802676",
+    "type": "split",
+    "children": [
+      {
+        "id": "362c2854049e5d86",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7c0a023367e70660",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "99f4564d514a9f14",
+    "type": "split",
+    "children": [
+      {
+        "id": "db3d7fdcb0aa95d2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c283d4fa08c94d44",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "43ec3243428228fa",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "ea4ff9f895530a0d",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 541.5
+  },
+  "right": {
+    "id": "081c3643e733c66c",
+    "type": "split",
+    "children": [
+      {
+        "id": "7222a594ddf9c36d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3218a44abb5a4cce",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "34158a03ae393b88",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "d194ca9aa2a82fb2",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "01ceccfeb45ba8c0",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:퀵 스위처 열기": false,
+      "graph:그래프 뷰 열기": false,
+      "canvas:새 캔버스 만들기": false,
+      "daily-notes:오늘의 데일리 노트 열기": false,
+      "templates:템플릿 삽입": false,
+      "command-palette:명령어 팔레트 열기": false
+    }
+  },
+  "active": "c283d4fa08c94d44",
+  "lastOpenFiles": [
+    "Multimodal/Stable Diffusion.pdf",
+    "Multimodal/BLIP2.pdf",
+    "Multimodal/InstructBLIP.pdf",
+    "Multimodal/LLaMA-Adapter.pdf",
+    "Multimodal/BLIP.pdf",
+    "Multimodal/FILIP.pdf",
+    "Multimodal/DeCLIP.pdf",
+    "Multimodal/LLaVA.Large Language and Vision Assistant.pdf",
+    "Diffusion/2023. Consistency Models/Consistency Models.pdf",
+    "Diffusion/2022. Towards Practical Plug-and-Play Diffusion Models/Towards Practical Plug-and-Play Diffusion Models.pdf",
+    "Diffusion/2023. Consistency Models",
+    "2017/2017.04. Attention is All You Need/Attention is All You Need.md",
+    "NLP.md",
+    "2017/2017.04. Attention All You Need/무제 파일.canvas",
+    "NLP/무제 파일.md"
+  ]
+}
