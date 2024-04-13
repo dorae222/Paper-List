@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "362c2854049e5d86",
+        "id": "776a07d131131cff",
         "type": "tabs",
         "children": [
           {
-            "id": "7c0a023367e70660",
+            "id": "4fb5c52d0d968997",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Multimodal/CLIP.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -60,12 +64,21 @@
               "type": "bookmarks",
               "state": {}
             }
+          },
+          {
+            "id": "2e4c78fdd276e293",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {}
+            }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 541.5
+    "width": 296.5,
+    "collapsed": true
   },
   "right": {
     "id": "081c3643e733c66c",
@@ -81,7 +94,8 @@
             "state": {
               "type": "backlink",
               "state": {
-                "collapseAll": false,
+                "file": "Multimodal/CLIP.md",
+                "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
@@ -97,6 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Multimodal/CLIP.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +133,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Multimodal/CLIP.md"
+              }
             }
           }
         ]
@@ -130,29 +147,46 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:퀵 스위처 열기": false,
-      "graph:그래프 뷰 열기": false,
-      "canvas:새 캔버스 만들기": false,
-      "daily-notes:오늘의 데일리 노트 열기": false,
-      "templates:템플릿 삽입": false,
-      "command-palette:명령어 팔레트 열기": false
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "switcher:Open quick switcher": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "graph:Open graph view": false
     }
   },
-  "active": "c283d4fa08c94d44",
+  "active": "4fb5c52d0d968997",
   "lastOpenFiles": [
-    "Multimodal/Stable Diffusion.pdf",
-    "Multimodal/BLIP2.pdf",
-    "Multimodal/InstructBLIP.pdf",
-    "Multimodal/LLaMA-Adapter.pdf",
-    "Multimodal/BLIP.pdf",
-    "Multimodal/FILIP.pdf",
-    "Multimodal/DeCLIP.pdf",
-    "Multimodal/LLaVA.Large Language and Vision Assistant.pdf",
-    "Diffusion/2023. Consistency Models/Consistency Models.pdf",
-    "Diffusion/2022. Towards Practical Plug-and-Play Diffusion Models/Towards Practical Plug-and-Play Diffusion Models.pdf",
-    "Diffusion/2023. Consistency Models",
+    "Multimodal/CLIP.md",
+    "graph/MultiModal.md",
+    "Zero-shot Transfer.md",
+    "source",
+    "source/Pasted image 20240413104818.png",
+    "[.md",
+    "Multimodal/CLIP.pdf",
+    "graph/Vision.md",
+    "2018/2018.10 BERT/BERT.md",
+    "graph/NLP.md",
+    "Pasted image 20240413073238.png.md",
+    "Pasted image 20240413073238.png",
+    "graph",
+    "CLIP - Learning Transferable Visual Models From Natural Language Supervision. ICML'2021..md",
+    "2018/2018.10 BERT/image/Untitled 64.png",
+    "2018/2018.10 BERT/image/Untitled 55.png",
+    "2018/2018.10 BERT/image/Untitled 54.png",
+    "2018/2018.10 BERT/image/Untitled 53.png",
+    "2018/2018.10 BERT/image/Untitled 52.png",
+    "2018/2018.10 BERT/image/Untitled 46.png",
+    "2018/2018.10 BERT/image/Untitled 44.png",
+    "2018/2018.10 BERT/image/Untitled 40.png",
+    "2018/2018.10 BERT/BERT.pdf",
+    "2018/2018.10 BERT/image",
+    "2018/2018.10 BERT/[2018] BERT Pre-training of Deep Bidirectional Transformer/Training_Tips_for_the_Transformer_Model.pdf",
+    "2018/2018.10 BERT/[2018] BERT Pre-training of Deep Bidirectional Transformer/On_the_Variance_of_the_Adaptive_Learning_Rate_and_Beyond.pdf",
+    "2018/2018.10 BERT/[2018] BERT Pre-training of Deep Bidirectional Transformer/On_Layer_Normalization_in_Transformer_Architecture.pdf",
+    "2018/2018.10 BERT/[2018] BERT Pre-training of Deep Bidirectional Transformer/Multihead_Attention.pdf",
+    "2018/2018.10 BERT/[2018] BERT Pre-training of Deep Bidirectional Transformer/Layer_Normalization.pdf",
     "2017/2017.04. Attention is All You Need/Attention is All You Need.md",
-    "NLP.md",
     "2017/2017.04. Attention All You Need/무제 파일.canvas",
     "NLP/무제 파일.md"
   ]
