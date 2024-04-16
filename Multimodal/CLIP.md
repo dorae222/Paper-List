@@ -1,11 +1,11 @@
 **Title**: Learning Transferable Visual Models From Natural Language Supervision
-**Venue**: ICML. 2021
+**Venue**: ICML 2021
 
 **Reviwer**: HyeongJun Do
-**Last Updated**: 13.04.2024
+**Last Updated**: 17.04.2024
 
 **Review Objective**
-> 현재 GPT-4-vision, Claude3, Gemini, LLaVA등 다양한 **Large Multimodal Model(LMM)** 및 Diffusion 및 GAN 베이스의 다양한 **이미지 생성 모델**이 있음. 이에 따라, 현 Text2Image Task의 근간이 되는 OPENAI가 2021년에 발표한 CLIP에 대해 리뷰하고자 함.
+> 현재 GPT-4-vision, Claude3, Gemini, LLaVA등 다양한 **Large Multimodal Model(LMM)**, Diffusion 및 GAN 베이스의 다양한 **이미지 생성 모델**이 있음. 이에 따라, 현 Text2Image Task의 근간이 되는 OPENAI가 2021년에 발표한 CLIP에 대해 리뷰하고자 함.
 
 **Reference**
 > OpenAI Blog: https://openai.com/research/clip
@@ -13,7 +13,7 @@
 > CLIP Github: https://github.com/openai/CLIP
 
 **A Brief Overview**
-> - 자연어 기반 지도 학습으로 Vision 모델을 새로운 Pretraining 방법론
+> - 자연어 기반 지도 학습으로 Vision 모델에 대한 새로운 Pretraining 방법론
 > - Text Embedding Vector와 Image Embedding Vector간의 거리를 학습하여,
 >   두 종류 데이터의 representation을 하나의 공간에서 학습하는 개념
 > - Clip = **C**onstrastive **L**anguage-**I**mage **P**re-training
@@ -46,7 +46,7 @@
 > CLIP은 Decoder Centric한 GPT 계열의 모델과 같이 **다양한 Task 수행 가능**
 
 - **Zero-shot transfer Performance** with 30 existing datasets
-		![[Pasted image 20240413104818.png]]
+		![[clip.figure1_1.png]]
 		 - Transformer Language Model
 		 - Prediction with BOW Encoding
 		 - Prediction with BOW Encoding and **the contrastive objective**(CLIP)
@@ -58,12 +58,12 @@
 ---
 ## 2. Approach
 
->  어떻게 Vison Task에서 좋은 결과를 얻을 수 자세하게 알아보도록 하자.
+>  Introduction과 같이 어떻게 Vison Task에서 좋은 결과를 얻을 수 있었을까?
 
 ### 2.1 Natural Language Supervision
 
 > 'Natural Language Supervision' Concept은 기존에도 존재했음
-- 단지 unsupervised, self-supervised, weakly supervised, and supervised를 개별적으로 언급함.
+- 단지 unsupervised, self-supervised, weakly supervised, and supervised가 종합적으로 정리되지 않았을 뿐임.
 	- [Contrastive Learning of Medical Visual Representations from Paired Images and Text.2020.arXiv](https://arxiv.org/abs/2010.00747)
 	- [Self-supervised learning of visual features through embedding images into text topic spaces.2017. IEEE ](https://arxiv.org/abs/1705.08631)
 	- [VirTex: Learning Visual Representations from Textual Annotations.2020.arXiv](https://arxiv.org/abs/2006.06666)
@@ -86,20 +86,96 @@
 - 이에 따라, CLIP에서는 **WIT(WebImageText)라는 새로운 데이터셋 구성**
 	- 다양한 인터넷에서 수집한 4억 개의 (Image, Text) Pair로 구성
 ### 2.3 Selecting an Efficient Pre-Traning Method
-
+> 과거 SOTA Comupter Vision System은 대량의 컴퓨팅 리소스를 필요로 함
+- VirTex와 같이, CNN 기반 이미지와 Transformer 텍스트를 joint하여 예측하도록 함
+> 그러나 위 방식은 효율적이지 않았음.
+- 이는 특정 클래스에 대한 **exact** word를 예측하도록 했기 때문임
+- 이미지는 Cross Entropy Loss를 구할 수 있음.
+- 하지만 자연어는 Label을 구분하기가 어렵고 softmax를 사용한 분류 방식으로 학습이 어려움
+> 이에 따라, Contrastive Learning 방식을 적용
+- 특정 클래스에 대한 **exact**한 것이 아니라, 벡터 공간 상에서 가까운 위치에 존재하는 것끼리 매칭되도록 함.
+- Contrastive Learning은 Self-Supervised-Learning에서 유용함
+#### Contrastive Learning
+	![[clip.figure1_1.png]]
+- **방법**: 입력 이미지에 Augmentation을 적용하여, 동일한 이미지 버전끼리는 가까워지고, 다른 이미지 버전과는 멀어지도록 학습
+- **1) 데이터셋 구조 및 Feature 추출**
+	- 이미지: Image Encoder를 사용하여 Feature를 추출하고, 이를 초록색 사각형($I_N$)으로 표시
+	- 자연어: Text Encoder를 사용하여 Feature를 추출하고, 이를 보라색 사각형($T_N$)으로 표시
+	- $N$은 배치 개수
+- **2) Feature 조합 및 학습 목표**
+	- **조합 생성**: 각 배치에서 $N$개의 이미지 Feature와 $N$개의 텍스트 Feature가 있으므로, 가능한 모든 조합은 $N*N$개
+	- **학습 방식**:
+		- **매칭되는 조합**: 자신에게 매칭되는 이미지와 텍스트 Feature 사이의 Cosine Similarity를 최대화하도록 학습
+		- **비매칭 조합**: 나머지 조합에서는 Cosine Similarity를 최소화하도록 학습
+- 3) Cosine Similarity의 역할
+	-  **의미**: 두 Feature가 공간상에서 얼마나 가까운 각도에 위치하는지
+	- **적용**: Cosine Similarity 값이 크다는 것은 두 Feature가 서로 가까워지고 있다는 것을 의미하며, 이는 두 데이터가 서로 매칭되어 있다는 뜻
+	- **성과**: 레이블 정보 없이도, 레이블 정보를 사용한 학습 모델과 비슷한 수준의 표현력을 실험적으로 증명
 ### 2.4 Choosing and Scaling a Model
+- 이미지 Encoder와 텍스트 Encoder 학습 Pseudo Lv 코드
+	![[clip.figure3.png]]
+#### Image Encoder 구성
 
+- **다양한 Vision 모델 활용 가능**:
+    - **ResNet**: 표현력을 강화하기 위해, 기존 ResNet 구조에서 마지막 Global Average Pooling을 수정하고, Attention Pooling을 도입하여 사용함. 이로 인해 더 세밀하고 효율적인 특성 추출이 가능
+    - **Vision Transformer ([[ViT]])** 
+	    - 기본 구조를 거의 그대로 유지하면서 사용
+	    - ViT는 입력 이미지를 패치로 분할하고 이들을 시퀀스처럼 처리하는 방식으로, 이미지 내 위치적 정보를 잘 캐치해냄
+- **실험 모델**: 5가지 종류의 ResNet과 3가지 종류의 ViT를 사용하여 다양한 실험을 진행함
 
+### Text Encoder 구성
+
+- **Transformer 사용**:
+    - Transformer 모델은 입력된 텍스트의 전반적인 컨텍스트를 이해하는 데 강점을 가지며, 각 단어의 연관성과 의미를 효과적으로 분석
+    - 마지막 Token에서 추출된 Feature는 Linear Projection을 통해 차원 조정을 거쳐, Image Feature와 차원을 일치시킴
 ### 2.5 Training
-
+- **모델 선택 및 규모 확장**: ResNet-50, ResNet-101, EfficientNet-style 모델인 RN50x4, RN50x16, RN50x64, ViT-B/32, ViT-B/16, ViT-L/14를 훈련
+- **훈련 과정**: 모든 모델을 32 에폭 동안 훈련
+- **옵티마이저 및 학습률**: Adam 옵티마이저와 코사인 스케줄을 사용하여 학습률을 조정
+- **하이퍼파라미터 초기화**: 그리드 서치, 랜덤 서치, 및 ResNet-50 모델을 1 에폭 동안 훈련시켜 수동으로 초기 하이퍼파라미터를 설정
+- **기타 훈련 방법**: Mixed-precision, Gradient Checkpointing, half-precision Adam statistics, half-precision stochastically rounded 텍스트 인코더 가중치 등을 사용하여 훈련을 가속화하고 메모리를 절약함
+- **훈련 시간**: 가장 큰 모델인 RN50x64는 592개의 V100 GPU에서 18일 동안, 가장 큰 Vision Transformer는 256개의 V100 GPU에서 12일 동안 훈련됨
+- **성능 향상**: ViT-L/14 모델은 추가적으로 336 픽셀 해상도에서 1 에폭 동안 사전 훈련을 진행하여 성능을 향상
 
 ---
 ## 3. Experiments
 ## 3.1 Zero-shot Transfer
-
+- **CLIP 모델 성능 비교 분석**
+	![[clip.figure5.png]]
+	- **Linear Probe 방식 소개**: 학습 완료된 Encoder를 기반으로 Classifier만 추가 학습하는 방법. Encoder가 효과적인 표현을 학습했다면, Classifier의 간단한 조정만으로도 높은 성능 달성 가능.
+	- **Zero Shot Prediction vs. Linear Probe 성능 비교**
+	    - 데이터셋의 절반 가까이에서 **Zero Shot Prediction** 성능이 **Linear Probe** 성능보다 우수함.
+	    - **Fine Grained Classification 데이터셋**: 세밀한 표현 학습 필요로 함으로써 Linear Probe 방식으로는 낮은 성능을 보임.
+	    - **일반적인 표현 학습이 가능한 데이터셋**: 높은 성능을 보임, 이는 Zero Shot 방식이 Label 정보를 사용하지 않고도 우수한 성능을 나타낼 수 있음을 의미.
+	- **결론**: 모든 데이터셋에서 우수한 결과를 보인 것은 아니지만, 레이블 없이도 레이블을 사용한 학습 방식을 초월하는 결과를 보여줌으로써, Zero Shot Prediction의 유용성을 강조.
+- **CLIP 모델과 다른 모델들의 Linear Probing 성능 비교**
+	![[clip.figure6.png]]
+	- **실험 개요**: 사전 학습 완료 후, 클래스당 제한된 수의 데이터만을 사용하여 Classifier를 재학습하고 성능 비교.
+	- **x축 정보**: Linear Probing에 사용된 클래스당 데이터 개수.
+	- **CLIP 모델의 성능**
+	    - CLIP 모델은 다른 모델들에 비해 모든 면에서 우수한 성능을 보임.
+	    - 다른 유명한 모델들(SimCLR[13], BiT 등)보다 뛰어난 표현 학습 능력을 검증.
+	- **CLIP의 Zero Shot 성능**
+	    - 클래스당 데이터 4개만 학습한 CLIP의 Linear Probing 성능과 유사.
+	    - 다른 모델들은 훨씬 많은 데이터를 필요로 함에도 불구하고 CLIP의 Zero Shot 성능에 비교될 정도의 수준을 달성하기 어려움.
+	    - CLIP의 Zero Shot 성능의 우수성을 강조, 레이블이 없는 환경에서도 뛰어난 성능을 보임을 의미.
+- **CLIP 자체 Zero Shot 성능과 Linear Probing 성능 비교**
+	![[clip.figure8.png]]
+	-  **실험 개요**: 동일한 사전 학습을 받은 CLIP 모델을 사용하여 Zero Shot 성능과 Linear Probing 성능을 비교.
+	- **일반 결과**
+	    - 대부분의 경우, Linear Probing의 성능이 Zero Shot 성능보다 우수함을 보임.
+	- **특이 사례**
+	    - 몇몇 데이터셋에서는 Zero Shot 성능과 Linear Probing 성능이 매우 유사하게 나타남.
+	- **결론**
+	    - 이러한 결과는 CLIP의 Zero Shot Prediction 기능이 강력함을 다시 한번 입증.
+	    - 일부 데이터셋에서 Linear Probing과 유사한 성능을 보이는 것은 Zero Shot Prediction의 효과와 능력을 강조함.
 ## 3.2 Representation Learning
+![[clip.figure10.png]]
+
 
 ## 3.3 Robustness to Natural Distribution Shift
+![[clip.figure12.png]]
+
 
 ---
 ## 4. Comparison to Human Performance
