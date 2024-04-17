@@ -107,13 +107,16 @@
 	- **학습 방식**:
 		- **매칭되는 조합**: 자신에게 매칭되는 이미지와 텍스트 Feature 사이의 Cosine Similarity를 최대화하도록 학습
 		- **비매칭 조합**: 나머지 조합에서는 Cosine Similarity를 최소화하도록 학습
-- 3) Cosine Similarity의 역할
+- **3) Cosine Similarity의 역할**
 	-  **의미**: 두 Feature가 공간상에서 얼마나 가까운 각도에 위치하는지
 	- **적용**: Cosine Similarity 값이 크다는 것은 두 Feature가 서로 가까워지고 있다는 것을 의미하며, 이는 두 데이터가 서로 매칭되어 있다는 뜻
 	- **성과**: 레이블 정보 없이도, 레이블 정보를 사용한 학습 모델과 비슷한 수준의 표현력을 실험적으로 증명
 ### 2.4 Choosing and Scaling a Model
 - 이미지 Encoder와 텍스트 Encoder 학습 Pseudo Lv 코드
 	![[clip.figure3.png]]
+	- 이전의 연구들과 다르게 Image와 Text represention을 multi-modal embedding으로 보낼 때 non-linear projection을 하지 않고 **linear하게 projection**을 하였다.
+	  (np.dot($I_f$, $W_i$), np.dot($T_f$, $W_t$))
+		- non-linear와 linear 모두 학습 시, 효율성에서 차이가 크게 드러나지 않았기 때문
 #### Image Encoder 구성
 
 - **다양한 Vision 모델 활용 가능**:
@@ -168,29 +171,42 @@
 	    - 몇몇 데이터셋에서는 Zero Shot 성능과 Linear Probing 성능이 매우 유사하게 나타남.
 	- **결론**
 	    - 이러한 결과는 CLIP의 Zero Shot Prediction 기능이 강력함을 다시 한번 입증.
-	    - 일부 데이터셋에서 Linear Probing과 유사한 성능을 보이는 것은 Zero Shot Prediction의 효과와 능력을 강조함.
+	    - 일부 데이터셋에서 Linear Probing과 유사한 성능을 보이는 것은 Zero-Shot Prediction의 효과와 능력을 강조함.
 ## 3.2 Representation Learning
-![[clip.figure10.png]]
-
-
+> CLIP의 Zero-Shot Transfer를 통해 광범위하게 분석했지만, 모델의 Representation Learning 능력을 보는 것이 일반적임
+	- Representation의 품질을 평가하는 방법은 다양하지만, 일반적으로 Linear Probing을 사용
+	- End-to-End Finetuning의 성능 측정은 또 다른 대안
+- Linera Probing을 사용한 이유
+	- Pretraining 단계에서 general하고 robust한 representation을 학습하지 못한 것이 더욱 잘 드러남
+	- 다른 모델과의 비교가 용이하며, Zero-Shot Classifier와의 유사성
+	- Fine-tuning opens up a much larger design and hyper- parameter space
+- CLIP은 효율적으로 확장되며, ViT는 CNN보다 계산이 효율적임
+	- Finetuning된 ViT-L/14 모델 제안
+- CLIP은 이전 모델들이 수행하지 못했던 더 넓은 범위의 Task 수행
+	![[clip.figure10.png]]
+> Linear Probing Test는 Feature Extaractor를 fixed해 놓고 Classifier만 재학습함
+	- 즉, Feature Extractor가 얼마나 범용적이고 효과적인 표현을 학습했는지 평가 가능
+	- 이를 통해, Image-Text Pair를 Contrastive Learning으로 학습하는 것이 우수하다고 할 수 있음
 ## 3.3 Robustness to Natural Distribution Shift
+- 2015년 ImageNet대회에서 DL모델이 인간을 뛰어넘었다고 발표됨
+- 하지만, 이 모델들은 간단한 Task에 대해 실수하고, 새로운 벤치마크에서는 사람보다 좋지 않은 정확도를 보임
+- 이는 over-fitting으로 인해 학습 데이터와 비슷한 분포의 데이터에서만 좋은 성능을 내던 것
 ![[clip.figure12.png]]
-
+- 위 그림을 통해, CLIP이 다른 모델들과 비교하여 다른 데이터 분포에서도 robust함을 보여줌
 
 ---
 ## 4. Comparison to Human Performance
+![[Table2.png]]
+- 본 연구에서는 사람 5명을 대상으로 Oxford IIT Pets dataset에서 3669개의 이미지를 보고 37개의 class로 classification 진행
+- 사람의 경우, Zero-shot에서 One-shot으로 갈 때 유의미한 성능 향상을 보이지만, One-shot에서 Two-shot으로 갈 때는 성능 변화가 적었음
+	- 이는 인간이 자신이 아는 것과 모르는 것을 무엇인지 알고 있음을 의미함
+- CLIP은 이와 다르게 Shot을 늘리면 늘릴수록 성능이 좋아지며, 추가적인 개선 방안이 있을 것이라고 판단됨
 ---
-## 5. Data Overlap Analysis
----
-## 6. Limitations
+## 5. Limitations
+- 특정 Task에서는 여전히 좋지 않은 성능을 보임
+- 복잡한 Task(Fine-grained classification)에서 성능 저하가 더욱 시함
+- 또한 CLIP은 온라인 상의 Image-Text Pair를  통해 학습했지만, Filtering이 되지 않아 문제가 발생함
+	- 이에 따라, social biases를 그대로 학습할 수 있다
+	- 쉽게 말하면, 인간이라는 Text에 해당하는 이미지에 백인이 많으면 백인 이미지만 인간이라고 판단할 확률이 높아진 다는 것이다
+- 추가적으로 Human Performacne 실험에서도 알 수 있듯, CLIP에서 Zero-Shot 성능을 향상시키기 위해 Few-Shot 방법에 대한 후속 연구가 필요하다고 언급됨
 
----
-## 7. Broader Impacts
-### 7.1 Bias
-
-### 7.2 Surveillance
-
-### 7.3 Future Work
-
----
-## 8. Related Work

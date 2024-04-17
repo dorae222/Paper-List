@@ -13,25 +13,9 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Multimodal/CLIP.md",
-                "mode": "source",
+                "file": "Multimodal/CLIP/CLIP.md",
+                "mode": "preview",
                 "source": false
-              }
-            }
-          }
-        ]
-      },
-      {
-        "id": "49e74f6bbee2697c",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "b19ccae12dd2a99e",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "Multimodal/CLIP.pdf"
               }
             }
           }
@@ -93,8 +77,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 296.5,
-    "collapsed": true
+    "width": 296.5
   },
   "right": {
     "id": "081c3643e733c66c",
@@ -110,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Multimodal/CLIP.md",
+                "file": "Multimodal/CLIP/CLIP.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Multimodal/CLIP.md",
+                "file": "Multimodal/CLIP/CLIP.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Multimodal/CLIP.md"
+                "file": "Multimodal/CLIP/CLIP.md"
               }
             }
           }
@@ -173,37 +156,38 @@
   },
   "active": "1590f99d0050ecf6",
   "lastOpenFiles": [
-    "source/clip.figure1_1.png",
-    "source/clip.figure2.png",
-    "Multimodal/CLIP.md",
-    "Multimodal/CLIP.pdf",
-    "source/clip.figure12.png",
-    "source/clip.figure10.png",
-    "source/clip.figure8.png",
-    "source/clip.figure6.png",
-    "source/clip.figure5.png",
+    "Multimodal/LLaVA/LLaVA.pdf",
+    "Multimodal/Stable Diffusion",
+    "Multimodal/LLaVA",
+    "Multimodal/LLaMA-Adapter",
+    "Multimodal/InstructBLIP",
+    "Multimodal/FILIP/FILIP.pdf",
+    "Multimodal/CLIP/CLIP.pdf",
+    "Multimodal/FILIP",
+    "Multimodal/DeCLIP",
+    "Multimodal/BLIP/BLIP2.pdf",
+    "Multimodal/CLIP",
+    "source/ViT/ViT.1.png",
+    "Multimodal/CLIP/CLIP.md",
+    "source/CLIP/Table2.png",
+    "source/CLIP/clip.figure1_1.png",
+    "source/CLIP/clip.figure15.png",
+    "source/CLIP/clip.figure2.png",
+    "source/CLIP/clip.figure12.png",
+    "source/CLIP/clip.figure10.png",
+    "source/CLIP/clip.figure8.png",
+    "source/CLIP/clip.figure6.png",
+    "source/CLIP/clip.figure5.png",
     "2021/2021.6 ViT/ViT.md",
-    "source/ViT.2.png",
-    "source/ViT.1.png",
     "Review.md",
-    "2021/2021.6 ViT/ViT.pdf",
-    "2021/2021.6 ViT",
-    "source/clip.figure3.png",
     "graph/MultiModal.md",
     "Zero-shot Transfer.md",
-    "source",
     "[.md",
     "graph/Vision.md",
     "2018/2018.10 BERT/BERT.md",
     "graph/NLP.md",
     "Pasted image 20240413073238.png.md",
-    "graph",
     "CLIP - Learning Transferable Visual Models From Natural Language Supervision. ICML'2021..md",
-    "2018/2018.10 BERT/BERT.pdf",
-    "2018/2018.10 BERT/image",
-    "2018/2018.10 BERT/[2018] BERT Pre-training of Deep Bidirectional Transformer/Training_Tips_for_the_Transformer_Model.pdf",
-    "2018/2018.10 BERT/[2018] BERT Pre-training of Deep Bidirectional Transformer/On_the_Variance_of_the_Adaptive_Learning_Rate_and_Beyond.pdf",
-    "2018/2018.10 BERT/[2018] BERT Pre-training of Deep Bidirectional Transformer/On_Layer_Normalization_in_Transformer_Architecture.pdf",
     "2017/2017.04. Attention is All You Need/Attention is All You Need.md",
     "2017/2017.04. Attention All You Need/무제 파일.canvas",
     "NLP/무제 파일.md"
