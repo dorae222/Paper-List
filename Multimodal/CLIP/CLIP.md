@@ -1,7 +1,7 @@
 **Title**: Learning Transferable Visual Models From Natural Language Supervision
 **Venue**: ICML 2021
 
-**Reviwer**: HyeongJun Do
+**Reviewer**: HyeongJun Do
 **Last Updated**: 17.04.2024
 
 **Review Objective**

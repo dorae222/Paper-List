@@ -1,7 +1,7 @@
 **Title**: Supervision Exists Everywhere: A Data Efficient Contrastive Language-Image Pre-training Paradigm
 **Venue**: ICLR 2022
 
-**Reviwer**: HyeongJun Do
+**Reviewer**: HyeongJun Do
 **Last Updated**: 30.04.2024
 
 **Reference**
