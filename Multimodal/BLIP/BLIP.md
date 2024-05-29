@@ -1,4 +1,4 @@
-**Title**: FILIP: BLIP: Bootstrapping Language-Image Pre-training for Unified Vision-Language Understanding and Generation
+**Title**: BLIP: Bootstrapping Language-Image Pre-training for Unified Vision-Language Understanding and Generation
 **Venue**: ICML 2022
 
 **Reviewer**: HyeongJun Do
