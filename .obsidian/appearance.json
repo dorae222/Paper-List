@@ -1,5 +1,8 @@
 {
   "accentColor": "",
   "cssTheme": "Prism",
-  "theme": "moonstone"
+  "theme": "moonstone",
+  "enabledCssSnippets": [
+    "width"
+  ]
 }

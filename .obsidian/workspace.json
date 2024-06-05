@@ -8,24 +8,14 @@
         "type": "tabs",
         "children": [
           {
-            "id": "e93757b82bdd2f4c",
+            "id": "f90bf5b35d913c66",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Multimodal/BLIP2/BLIP2.md",
+                "file": "Multimodal/LLaMA-Adapter/LLaMA-Adapter.md",
                 "mode": "source",
                 "source": false
-              }
-            }
-          },
-          {
-            "id": "f90bf5b35d913c66",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "Multimodal/BLIP2/BLIP2.pdf"
               }
             }
           }
@@ -103,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Multimodal/BLIP2/BLIP2.md",
+                "file": "Multimodal/LLaMA-Adapter/LLaMA-Adapter.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -120,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Multimodal/BLIP2/BLIP2.md",
+                "file": "Multimodal/LLaMA-Adapter/LLaMA-Adapter.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -143,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Multimodal/BLIP2/BLIP2.md"
+                "file": "Multimodal/LLaMA-Adapter/LLaMA-Adapter.md"
               }
             }
           }
@@ -164,32 +154,33 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "e93757b82bdd2f4c",
+  "active": "f90bf5b35d913c66",
   "lastOpenFiles": [
+    "Multimodal/LLaMA-Adapter/LLaMA-Adapter_review.pdf",
+    "Multimodal/LLaMA-Adapter/LLaMA-Adapter.md",
+    "Multimodal/LLaMA-Adapter/LLaMA-Adapter.pdf",
+    "source/llama_adpter/table3_4.png",
+    "source/llama_adpter/table2.png",
+    "source/llama_adpter/figure4.png",
+    "source/llama_adpter/figure5.png",
+    "source/llama_adpter/figure6.png",
+    "source/llama_adpter/table1.png",
+    "source/llama_adpter/figure3.png",
+    "source/llama_adpter/figure2.png",
+    "source/llama_adpter/figure1.png",
+    "source/llama_adpter",
+    "source/원앙",
+    "Multimodal/BLIP2/BLIP2.md",
     "Multimodal/BLIP2/BLIP2.pdf",
     "source/BLIP2/table1.png",
-    "Multimodal/BLIP2/BLIP2.md",
-    "source/BLIP2/figure3.png",
-    "source/BLIP2/figure2.png",
-    "source/BLIP2/figure1.png",
     "source/BLIP2",
     "source/새 폴더",
     "Multimodal/BLIP/BLIP.md",
     "Multimodal/BLIP/BLIP.pdf",
     "2019/2019.11. Momentum Contrast for Unsupervised Visual Representation Learning.pdf",
     "2020/2019.11. Momentum Contrast for Unsupervised Visual Representation Learning.pdf",
-    "2022/2022.12. Text Embeddings by Weakly Supervised Contrastive Pretraining.pdf",
-    "2024/2022.12. Text Embeddings by Weakly Supervised Contrastive Pretraining.pdf",
-    "2024/2024.02. Text Embeddings by Weakly Supervised Contrastive Pretraining.pdf",
-    "2024/2024.02. Text Embeddings by Weakly Supervised Contrastive Pretraining.pdf.crdownload",
     "Diffusion/2022. High-Resolution Image Synthesis with Latent Diffusion Models/High-Resolution Image Synthesis with Latent Diffusion Models.md",
     "Multimodal/FILIP/FILIP.md",
-    "source/FILIP/table 1.png",
-    "Pasted image 20240508115639.png",
-    "source/FILIP/autoaugment.png",
-    "source/FILIP/l2 layer.png",
-    "source/FILIP/text modality.png",
-    "source/FILIP/visual modality.png",
     "Multimodal/DeCLIP/DeCLIP.md",
     "Multimodal/CLIP/CLIP.md",
     "2021/2021.6 ViT/ViT.md",

@@ -1,0 +1,11 @@
+{
+  "command-palette:open": [],
+  "workspace:export-pdf": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "P"
+    }
+  ]
+}
