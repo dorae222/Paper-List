@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Multimodal/LLaMA-Adapter/LLaMA-Adapter.md",
+                "file": "Multimodal/LLaVA/LLaVA.md",
                 "mode": "source",
                 "source": false
               }
@@ -77,7 +77,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 296.5
+    "width": 296.5,
+    "collapsed": true
   },
   "right": {
     "id": "081c3643e733c66c",
@@ -93,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Multimodal/LLaMA-Adapter/LLaMA-Adapter.md",
+                "file": "Multimodal/LLaVA/LLaVA.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Multimodal/LLaMA-Adapter/LLaMA-Adapter.md",
+                "file": "Multimodal/LLaVA/LLaVA.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Multimodal/LLaMA-Adapter/LLaMA-Adapter.md"
+                "file": "Multimodal/LLaVA/LLaVA.md"
               }
             }
           }
@@ -156,8 +157,9 @@
   },
   "active": "f90bf5b35d913c66",
   "lastOpenFiles": [
-    "Multimodal/LLaMA-Adapter/LLaMA-Adapter_review.pdf",
     "Multimodal/LLaMA-Adapter/LLaMA-Adapter.md",
+    "Multimodal/LLaVA/LLaVA.md",
+    "Multimodal/LLaMA-Adapter/LLaMA-Adapter_review.pdf",
     "Multimodal/LLaMA-Adapter/LLaMA-Adapter.pdf",
     "source/llama_adpter/table3_4.png",
     "source/llama_adpter/table2.png",
